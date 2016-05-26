@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="Copyright">icons/Copyright.png</file>
+        <file alias="AddFiles">icons/Folder.png</file>
+    </qresource>
+</RCC>
