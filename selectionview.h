@@ -11,33 +11,38 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QUrl>
+#include <QDebug>
 
 #include "labeldrag.h"
+#include "controler.h"
+#include"model.h"
 
 class SelectionView : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit SelectionView(QWidget *parent = 0);
+    explicit SelectionView(Controler *controler, Model *model, QWidget *parent = 0);
 
 public slots:
     void dragFile(QUrl url);
     void dragCopy(QUrl url);
+    void chooseFile();
+    void chooseFiles();
+    void chooseOutputDir();
 
 private:
+    Controler *controler;
+    Model *model;
     QGroupBox *file;
     QGroupBox *copyright;
     QPushButton *pb_fileSelection;
     QPushButton *pb_copyrightFileSelector;
-    QPushButton *pb_createCopyright;
-    QPushButton *pb_setCopyright;
     QPushButton *pb_applyCopyright;
     QComboBox *combo_copyrightSelector;
+    QLabel *lab_filesInfo;
     LabelDrag *img_file;
     LabelDrag *img_copyright;
-    QUrl *url_file;
-    QUrl *url_copy;
 };
 
 #endif // SELECTIONVIEW_H

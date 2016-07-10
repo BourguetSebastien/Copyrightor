@@ -3,6 +3,7 @@
 
 #include <QList>
 #include <QUrl>
+#include <QDebug>
 
 #include "model.h"
 
@@ -12,8 +13,6 @@ public:
     Controler(Model *model);
     Model *getModel() const;
     void setModel(Model *value);
-    void applyUrlsFiles(QList<QUrl> urls);
-    void applyUrlCopyright(QUrl url);
 
 private:
     Model *model;

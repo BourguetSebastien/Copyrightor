@@ -15,11 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     labeldrag.cpp \
-    selectionview.cpp
+    selectionview.cpp \
+    model.cpp \
+    controler.cpp \
+    editionview.cpp
 
 HEADERS  += mainwindow.h \
     labeldrag.h \
-    selectionview.h
+    selectionview.h \
+    model.h \
+    controler.h \
+    editionview.h
 
 RESOURCES += \
     recources.qrc

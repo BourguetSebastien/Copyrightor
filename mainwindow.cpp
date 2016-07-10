@@ -2,10 +2,13 @@
 
 using namespace std;
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(Controler *controler, Model *model, QWidget *parent) :
     QMainWindow(parent)
 {
-    startView = new SelectionView(this);
+    this->controler = controler;
+    this->model = model;
+
+    startView = new SelectionView(controler, model, this);
 
     QMenu menu(this);
 

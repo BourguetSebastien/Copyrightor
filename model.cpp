@@ -2,23 +2,49 @@
 
 Model::Model()
 {
-    copyright = 0;
+    this->dir = "";
+    this->copyright = "";
+    this->outputDir = "";
 }
 
-QUrl Model::getCopyright() const
+QString Model::getDir () const
 {
-    return copyright;
-}
-void Model::setCopyright(const QUrl &value)
-{
-    copyright = value;
+    return dir;
 }
 
-QList<QUrl> Model::getFiles() const
+void Model::setDir (const QString &dir)
+{
+    this->dir = dir;
+}
+
+QStringList Model::getFiles() const
 {
     return files;
 }
-void Model::setFiles(const QList<QUrl> &value)
+void Model::setFiles(const QStringList &files)
 {
-    files = value;
+    this->files = files;
+}
+
+void Model::setFile(const QString &file)
+{
+    this->files.append(file);
+}
+
+QString Model::getCopyright() const
+{
+    return copyright;
+}
+void Model::setCopyright(const QString &copyright)
+{
+    this->copyright = copyright;
+}
+
+QString Model::getOutputDir () const
+{
+    return this->outputDir;
+}
+void Model::setOutputDir (const QString &outputDir)
+{
+    this->outputDir = outputDir;
 }

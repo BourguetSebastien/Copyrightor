@@ -3,21 +3,29 @@
 
 #include <QObject>
 #include <QList>
-#include <QUrl>
+#include <QString>
+#include <QStringList>
 
 class Model
 {
 public:
     Model();
-    QUrl getCopyright() const;
-    void setCopyright(const QUrl &value);
-    QList<QUrl> getFiles() const;
-    void setFiles(const QList<QUrl> &value);
+    QString getDir() const;
+    void setDir(const QString &dir);
+    QStringList getFiles() const;
+    void setFiles(const QStringList &files);
+    void setFile(const QString &file);
+    QString getCopyright() const;
+    void setCopyright(const QString &copyright);
+    QString getOutputDir() const;
+    void setOutputDir(const QString &outputDir);
 
 private:
     // List settings
-    QList<QUrl> files;
-    QUrl copyright;
+    QString dir;
+    QStringList files;
+    QString copyright;
+    QString outputDir;
 };
 
 #endif // MODEL_H

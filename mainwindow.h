@@ -10,13 +10,15 @@
 #include <QAction>
 
 #include "selectionview.h"
+#include "controler.h"
+#include "model.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(Controler *controler = 0, Model *model = 0, QWidget *parent = 0);
     ~MainWindow();
 
 public slots:
@@ -33,6 +35,8 @@ public slots:
     void aboutQt();
 
 private:
+    Controler *controler;
+    Model *model;
     SelectionView *startView;
     QMenu *fileMenu;
     QMenu *editMenu;
