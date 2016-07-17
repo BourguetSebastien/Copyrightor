@@ -2,5 +2,10 @@
     <qresource prefix="/icons">
         <file alias="Copyright">icons/Copyright.png</file>
         <file alias="AddFiles">icons/Folder.png</file>
+        <file alias="icon">icons/icon.icns</file>
+    </qresource>
+    <qresource prefix="/src">
+        <file alias="img_1">icons/Img_1.jpg</file>
+        <file alias="copy">icons/Chicken White.png</file>
     </qresource>
 </RCC>

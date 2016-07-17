@@ -12,10 +12,11 @@
 #include <QGridLayout>
 #include <QUrl>
 #include <QDebug>
+#include <QStringList>
 
 #include "labeldrag.h"
 #include "controler.h"
-#include"model.h"
+#include "model.h"
 
 class SelectionView : public QWidget
 {
@@ -23,6 +24,9 @@ class SelectionView : public QWidget
 
 public:
     explicit SelectionView(Controler *controler, Model *model, QWidget *parent = 0);
+
+signals:
+    void selectionTerminated();
 
 public slots:
     void dragFile(QUrl url);

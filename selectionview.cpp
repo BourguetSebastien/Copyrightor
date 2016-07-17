@@ -17,10 +17,8 @@ SelectionView::SelectionView(Controler *controler, Model *model, QWidget *parent
     pb_applyCopyright = new QPushButton("Appliquer copyright");
 
     this->lab_filesInfo->setAlignment (Qt::AlignCenter);
-    QPixmap pixmap_file(":/icons/AddFiles");
-    this->img_file->setPixmap(pixmap_file);
-    QPixmap pixmap_copyright(":/icons/Copyright");
-    this-> img_copyright->setPixmap(pixmap_copyright);
+    this->img_file->setPixmap (QPixmap (":/icons/AddFiles"));
+    this-> img_copyright->setPixmap(QPixmap (":/icons/Copyright"));
 
 
     QSizePolicy size_file(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -136,4 +134,5 @@ void SelectionView::chooseOutputDir ()
                 QDir::homePath (),
                 QFileDialog::ShowDirsOnly);
     this->model->setOutputDir (dir);
+    emit selectionTerminated ();
 }

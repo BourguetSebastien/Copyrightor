@@ -8,7 +8,9 @@ MainWindow::MainWindow(Controler *controler, Model *model, QWidget *parent) :
     this->controler = controler;
     this->model = model;
 
-    startView = new SelectionView(controler, model, this);
+    selectionView = new SelectionView(controler, model, this);
+
+    QObject::connect (this->selectionView, SIGNAL(selectionTerminated()), this, SLOT(newFile()));
 
     QMenu menu(this);
 
@@ -99,13 +101,15 @@ MainWindow::MainWindow(Controler *controler, Model *model, QWidget *parent) :
     recentMenu->addSeparator()->setText(tr("Alignment"));
     recentMenu->addSeparator();
 
-    this->setCentralWidget(startView);
+    this->setCentralWidget(this->selectionView);
 
     this->setWindowTitle("CopyrighTor");
+    this->setWindowIcon (QIcon (":/icons/icon"));
 }
 
 void MainWindow::newFile()
 {
+    this->createEditionView ();
 }
 
 void MainWindow::open()
@@ -151,6 +155,15 @@ void MainWindow::aboutQt()
 {
 }
 
+void MainWindow::createEditionView ()
+{
+    this->editionView = new EditionView (this->controler, this->model, this);
+    //this->setCentralWidget (NULL);
+    //delete selectionView;
+    this->setCentralWidget (this->editionView);
+}
+
 MainWindow::~MainWindow()
 {
+    this->hide ();
 }

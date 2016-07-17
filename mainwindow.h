@@ -10,6 +10,7 @@
 #include <QAction>
 
 #include "selectionview.h"
+#include "editionview.h"
 #include "controler.h"
 #include "model.h"
 
@@ -37,7 +38,9 @@ public slots:
 private:
     Controler *controler;
     Model *model;
-    SelectionView *startView;
+    SelectionView *selectionView;
+    EditionView *editionView;
+
     QMenu *fileMenu;
     QMenu *editMenu;
     QMenu *recentMenu;
@@ -54,6 +57,8 @@ private:
     QAction *pasteAct;
     QAction *aboutAct;
     QAction *aboutQtAct;
+
+    void createEditionView();
 };
 
 #endif // MAINWINDOW_H
